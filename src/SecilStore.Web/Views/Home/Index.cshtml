@@ -1,0 +1,40 @@
+﻿@model List<Configuration>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2>Configuration List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Value</th>
+                <th>IsActive</th>
+                <th>ApplicationName</th>
+                <th>Aksiyonlar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Type</td>
+                    <td>@item.Value</td>
+                    <td>@item.IsActive</td>
+                    <td>@item.ApplicationName</td>
+                    <td>
+                        <a asp-controller="Home" asp-action="UpdateConfiguration" asp-route-id="@item.Id" class="btn btn-primary">Update</a>
+                        <a asp-controller="Home" asp-action="DeleteConfiguration" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Home" asp-action="AddConfiguration" class="btn btn-success">New Configuration</a>
+</div>
