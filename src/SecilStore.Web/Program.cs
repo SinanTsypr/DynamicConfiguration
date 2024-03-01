@@ -1,5 +1,6 @@
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
-using SecilStore.ApplicationCore.Interfaces;
+using SecilStore.ApplicationCore.Entities;
 using SecilStore.Infrastructure.Data;
 using System.Reflection;
 
@@ -12,17 +13,14 @@ namespace SecilStore.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddDbContext<SecilStoreDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-            //builder.Services.AddTransient(options => new ConfigurationService(connectionString, "configuration", "records"));
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddTransient(options => new ConfigurationRepository(connectionString!, "configuration", "configurations"));
 
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             builder.Services.AddHttpContextAccessor();
-            builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
             var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,19 @@ namespace SecilStore.ApplicationCore.Entities
 {
     public class Configuration : BaseEntity
     {
-        public string Name { get; set; } = null!;
-        public string Type { get; set; } = null!;
-        public string Value { get; set; } = null!;
+        [BsonElement("Name")]
+        public string Name { get; set; }
+
+        [BsonElement("Value")]
+        public string Value { get; set; }
+
+        [BsonElement("Type")]
+        public string Type { get; set; }
+
+        [BsonElement("IsActive")]
         public bool IsActive { get; set; }
-        public string ApplicationName { get; set; } = null!;
+
+        [BsonElement("ApplicationName")]
+        public string ApplicationName { get; set; }
     }
 }

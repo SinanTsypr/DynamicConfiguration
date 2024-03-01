@@ -1,63 +1,59 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using SecilStore.ApplicationCore.Entities;
-using SecilStore.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SecilStore.Infrastructure.Data
 {
-    public class EfRepository<T> : IRepository<T> where T : BaseEntity
+    public abstract class EfRepository<T> where T : BaseEntity
     {
-        private readonly SecilStoreDbContext _dbContext;
+        protected IMongoCollection<T> mongoCollection;
 
-        public EfRepository(SecilStoreDbContext dbContext)
+        public EfRepository(string mongoDBConnectionString, string dbName, string collectionName)
         {
-            _dbContext = dbContext;
+            var client = new MongoClient(mongoDBConnectionString);
+            var database = client.GetDatabase(dbName);
+            mongoCollection = database.GetCollection<T>(collectionName);
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public virtual List<T> GetList()
         {
-            return await _dbContext.Set<T>().FindAsync(id);
+            return mongoCollection.Find(m => true).ToList();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual T GetById(string id)
         {
-            return await _dbContext.Set<T>().ToListAsync();
+            var docId = new ObjectId(id);
+            return mongoCollection.Find<T>(m => m.Id == id).FirstOrDefault();
         }
 
-        public async Task AddAsync(T entity)
+        public virtual T Create(T model)
         {
-            _dbContext.Set<T>().Add(entity);
-            await _dbContext.SaveChangesAsync();
+            mongoCollection.InsertOne(model);
+            return model;
         }
 
-        public async Task UpdateAsync(T entity)
+        public virtual void Update(string id, T model)
         {
-            _dbContext.Set<T>().Update(entity);
-            await _dbContext.SaveChangesAsync();
+            var docId = new ObjectId(id);
+            mongoCollection.ReplaceOne(m => m.Id == id, model);
         }
 
-        public async Task DeleteAsync(int id)
+        public virtual void Delete(T model)
         {
-            var entity = await _dbContext.Set<T>().FindAsync(id);
-            if (entity != null)
-            {
-                _dbContext.Set<T>().Remove(entity);
-                await _dbContext.SaveChangesAsync();
-            }
+            mongoCollection.DeleteOne(m => m.Id == model.Id);
         }
 
-        public async Task<Configuration> FindByName(string name, string applicationName, bool isActive)
+        public virtual void Delete(string id)
         {
-            return await _dbContext.Configurations.FirstOrDefaultAsync(x => x.Name == name && x.ApplicationName == applicationName && x.IsActive == isActive);
-        }
-
-        public async Task<List<Configuration>> FindAllByApplicationName(string applicationName)
-        {
-            return await _dbContext.Configurations.Where(x => x.ApplicationName == applicationName).ToListAsync();
+            var docId = new ObjectId(id);
+            mongoCollection.DeleteOne(m => m.Id == id);
         }
     }
 }

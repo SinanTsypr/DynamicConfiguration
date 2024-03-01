@@ -9,13 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{16F09E64-7DD4-41C0-9516-DD0A869C2ECD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecilStore.ApplicationCore", "src\SecilStore.ApplicationCore\SecilStore.ApplicationCore.csproj", "{AF0CED35-ED9A-467C-81CB-B2BACDC3B816}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecilStore.ApplicationCore", "src\SecilStore.ApplicationCore\SecilStore.ApplicationCore.csproj", "{AF0CED35-ED9A-467C-81CB-B2BACDC3B816}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecilStore.Infrastructure", "src\SecilStore.Infrastructure\SecilStore.Infrastructure.csproj", "{D4350CEC-8C35-4766-AF23-8A8182F1444C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecilStore.Infrastructure", "src\SecilStore.Infrastructure\SecilStore.Infrastructure.csproj", "{D4350CEC-8C35-4766-AF23-8A8182F1444C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecilStore.Web", "src\SecilStore.Web\SecilStore.Web.csproj", "{0EB7F3A5-EE9B-4A2B-A68D-B3DEF5D3E94E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecilStore.Web", "src\SecilStore.Web\SecilStore.Web.csproj", "{0EB7F3A5-EE9B-4A2B-A68D-B3DEF5D3E94E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecilStore.ConfigurationReader", "src\SecilStore.ConfigurationReader\SecilStore.ConfigurationReader.csproj", "{AFA3318C-07DC-4112-B4CA-7F1CBEB1BD49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecilStore.ConfigurationReader", "src\SecilStore.ConfigurationReader\SecilStore.ConfigurationReader.csproj", "{AFA3318C-07DC-4112-B4CA-7F1CBEB1BD49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service-A", "src\Service-A\Service-A.csproj", "{92C498B9-D09B-46A9-9812-EA4A09B6FFAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service-B", "src\Service-B\Service-B.csproj", "{8ACB8150-5A74-4A8F-9CD2-1AF82FFE19C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{AFA3318C-07DC-4112-B4CA-7F1CBEB1BD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFA3318C-07DC-4112-B4CA-7F1CBEB1BD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFA3318C-07DC-4112-B4CA-7F1CBEB1BD49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92C498B9-D09B-46A9-9812-EA4A09B6FFAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C498B9-D09B-46A9-9812-EA4A09B6FFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C498B9-D09B-46A9-9812-EA4A09B6FFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C498B9-D09B-46A9-9812-EA4A09B6FFAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACB8150-5A74-4A8F-9CD2-1AF82FFE19C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACB8150-5A74-4A8F-9CD2-1AF82FFE19C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACB8150-5A74-4A8F-9CD2-1AF82FFE19C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACB8150-5A74-4A8F-9CD2-1AF82FFE19C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +61,8 @@ Global
 		{D4350CEC-8C35-4766-AF23-8A8182F1444C} = {16F09E64-7DD4-41C0-9516-DD0A869C2ECD}
 		{0EB7F3A5-EE9B-4A2B-A68D-B3DEF5D3E94E} = {16F09E64-7DD4-41C0-9516-DD0A869C2ECD}
 		{AFA3318C-07DC-4112-B4CA-7F1CBEB1BD49} = {16F09E64-7DD4-41C0-9516-DD0A869C2ECD}
+		{92C498B9-D09B-46A9-9812-EA4A09B6FFAB} = {16F09E64-7DD4-41C0-9516-DD0A869C2ECD}
+		{8ACB8150-5A74-4A8F-9CD2-1AF82FFE19C2} = {16F09E64-7DD4-41C0-9516-DD0A869C2ECD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E080F2B1-5953-4319-9615-1E66184A5E92}
