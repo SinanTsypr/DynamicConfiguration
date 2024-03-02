@@ -18,8 +18,6 @@ namespace SecilStore.Web
 
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
             builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();

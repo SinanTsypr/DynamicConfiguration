@@ -1,4 +1,3 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SecilStore.ApplicationCore.Entities;
 using SecilStore.Infrastructure.Data;

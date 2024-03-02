@@ -6,6 +6,23 @@
 
 <div>
     <h2>Configuration List</h2>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="input-group">
+                <input id="filter" type="text" class="form-control" placeholder="Search...">
+                <button id="searchButton" class="btn btn-primary" type="button">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="isActiveCheckbox">
+                <label class="form-check-label" for="isActiveCheckbox">Aktif olanları göster</label>
+            </div>
+        </div>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
@@ -42,3 +59,39 @@
     </div>
     <a asp-controller="Home" asp-action="Create" class="btn btn-success">New Configuration</a>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            const listItems = $("table tbody tr");
+
+            $("#filter").on("input", function () {
+                applyFilters();
+            });
+
+            $("#isActiveCheckbox").on("change", function () {
+                applyFilters();
+            });
+
+            function applyFilters() {
+                let filter = $("#filter").val().toUpperCase();
+                let isActive = $("#isActiveCheckbox").prop("checked");
+
+                listItems.hide().filter(function () {
+                    let text = $(this).text().toUpperCase();
+                    let isActiveRow = $(this).find('td:eq(4)').text().trim() === 'True';
+
+                    if (filter && isActive) {
+                        return text.indexOf(filter) > -1 && isActiveRow;
+                    } else if (filter && !isActive) {
+                        return text.indexOf(filter) > -1;
+                    } else if (!filter && isActive) {
+                        return isActiveRow;
+                    } else {
+                        return true;
+                    }
+                }).show();
+            }
+        });
+    </script>
+}
