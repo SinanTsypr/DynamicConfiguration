@@ -5,7 +5,15 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Service_A</RootNamespace>
+    <UserSecretsId>5e553cb5-71f0-4221-826a-c26bbbc0c5e0</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SecilStore.ConfigurationReader\SecilStore.ConfigurationReader.csproj" />

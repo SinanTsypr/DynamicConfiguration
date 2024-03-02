@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "secilstore.web": "StartDebugging",
+        "service-a": "StartDebugging",
+        "service-b": "StartDebugging"
+      }
+    }
+  }
+}
