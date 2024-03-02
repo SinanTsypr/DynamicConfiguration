@@ -2,10 +2,30 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>siteName @ViewBag.siteName</p>
-    <p>maxItemCount @ViewBag.maxItemCount</p>
-    <p>isBasketEnabled @ViewBag.isBasketEnabled</p>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title text-center">SERVICE-A</h1>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row">SiteName</th>
+                                <td>@ViewBag.siteName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">MaxItemCount</th>
+                                <td>@ViewBag.maxItemCount</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">IsBasketEnabled</th>
+                                <td>@ViewBag.isBasketEnabled</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

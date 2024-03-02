@@ -11,11 +11,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SecilStore.Infrastructure.Data
 {
-    public abstract class EfRepository<T> where T : BaseEntity
+    public abstract class BaseRepository<T> where T : BaseEntity
     {
         protected IMongoCollection<T> mongoCollection;
 
-        public EfRepository(string mongoDBConnectionString, string dbName, string collectionName)
+        public BaseRepository(string mongoDBConnectionString, string dbName, string collectionName)
         {
             var client = new MongoClient(mongoDBConnectionString);
             var database = client.GetDatabase(dbName);

@@ -6,35 +6,39 @@
 
 <div>
     <h2>Configuration List</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Value</th>
-                <th>IsActive</th>
-                <th>ApplicationName</th>
-                <th>Aksiyonlar</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.Type</td>
-                    <td>@item.Value</td>
-                    <td>@item.IsActive</td>
-                    <td>@item.ApplicationName</td>
-                    <td>
-                        <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Update</a>
-                        <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                    </td>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>IsActive</th>
+                    <th>ApplicationName</th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Type</td>
+                        <td>@item.Value</td>
+                        <td>@item.IsActive</td>
+                        <td>@item.ApplicationName</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary me-2">Update</a>
+                                <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
     <a asp-controller="Home" asp-action="Create" class="btn btn-success">New Configuration</a>
 </div>

@@ -6,21 +6,21 @@ namespace SecilStore.Web.Controllers
 {
     public class BaseController<T> : Controller where T : BaseEntity
     {
-        public EfRepository<T> EfRepository { get; set; }
+        public BaseRepository<T> BaseRepository { get; set; }
 
-        public BaseController(EfRepository<T> baseRepository)
+        public BaseController(BaseRepository<T> baseRepository)
         {
-            this.EfRepository = baseRepository;
+            this.BaseRepository = baseRepository;
         }
         public virtual IActionResult Index()
         {
-            var list = this.EfRepository.GetList();
+            var list = this.BaseRepository.GetList();
             return View(list);
         }
 
         public virtual IActionResult Edit(string id)
         {
-            var model = this.EfRepository.GetById(id);
+            var model = this.BaseRepository.GetById(id);
             return View(model);
         }
 
@@ -29,7 +29,7 @@ namespace SecilStore.Web.Controllers
         {
             try
             {
-                this.EfRepository.Update(id, model);
+                this.BaseRepository.Update(id, model);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -47,7 +47,7 @@ namespace SecilStore.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("Name,IsActive,Value,Type,ApplicationName")] T model)
         {
-            this.EfRepository.Create(model);
+            this.BaseRepository.Create(model);
             return RedirectToAction(nameof(Index));
         }
 
@@ -55,7 +55,7 @@ namespace SecilStore.Web.Controllers
         {
             try
             {
-                this.EfRepository.Delete(id);
+                this.BaseRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception)

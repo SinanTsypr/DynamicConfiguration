@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SecilStore.Infrastructure.Data
 {
-    public class ConfigurationRepository : EfRepository<Configuration>
+    public class ConfigurationRepository : BaseRepository<Configuration>
     {
         public ConfigurationRepository(string mongoDBConnectionString, string dbName, string collectionName) : base(mongoDBConnectionString, dbName, collectionName)
         {
