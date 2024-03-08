@@ -15,7 +15,6 @@
   <li><strong>Framework:</strong> ASP.NET 8.0</li>
   <li><strong>Sürüm Kontrol:</strong> Github</li>
   <li><strong>Docker:</strong> Docker Compose</li>
-  <li><strong>Test:</strong> Unit Test (Moq kütüphanesi yüklendi)</li>
 </ul>
 
 <h2>Özellikler:</h2>
@@ -24,7 +23,7 @@
   <li>Uygulama bazlı erişim</li>
   <li>Tip dönüştürme</li>
   <li>Docker desteği</li>
-  <li>Unit Test altyapısı <b>(tamamlanmadı)</b></li>
+  <li>Unit Test altyapısı(Moq kütüphanesi yüklendi)<b>(tamamlanmadı)</b></li>
 </ul>
 
 <h1>Mimari</h1>
