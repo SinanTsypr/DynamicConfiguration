@@ -4,22 +4,22 @@ services:
   secilstore.web:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=80
-      - ASPNETCORE_HTTPS_PORTS=443
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
     ports:
-      - "8080:80"
-      - "8081:443"
+      - "8080:8080"
+      - "8081:8081"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
   service-a:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=80
-      - ASPNETCORE_HTTPS_PORTS=443
+      - ASPNETCORE_HTTP_PORTS=8082
+      - ASPNETCORE_HTTPS_PORTS=8083
     ports:
-      - "8082:80"
-      - "8083:443"
+      - "8082:8082"
+      - "8083:8083"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
@@ -27,11 +27,11 @@ services:
   service-b:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=80
-      - ASPNETCORE_HTTPS_PORTS=443
+      - ASPNETCORE_HTTP_PORTS=8084
+      - ASPNETCORE_HTTPS_PORTS=8085
     ports:
-      - "8084:80"
-      - "8085:443"
+      - "8084:8084"
+      - "8085:8085"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

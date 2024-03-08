@@ -11,27 +11,27 @@
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="mb-3">
-                    <label for="Name" class="form-label">Name</label>
-                    <input type="text" id="Name" name="Name" class="form-control" />
+                    <label asp-for="Name" class="form-label">Name</label>
+                    <input type="text" id="Name" asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="Type" class="form-label">Type</label>
-                    <input type="text" id="Type" name="Type" class="form-control" />
+                    <label asp-for="Type" class="form-label">Type</label>
+                    <input type="text" id="Type" asp-for="Type" class="form-control" />
                     <span asp-validation-for="Type" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="Value" class="form-label">Value</label>
-                    <input type="text" id="Value" name="Value" class="form-control" />
+                    <label asp-for="Value" class="form-label">Value</label>
+                    <input type="text" id="Value" asp-for="Value" class="form-control" />
                     <span asp-validation-for="Value" class="text-danger"></span>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" id="IsActive" name="IsActive" class="form-check-input" />
-                    <label for="IsActive" class="form-check-label">Is Active</label>
+                    <input type="checkbox" id="IsActive" asp-for="IsActive" class="form-check-input" />
+                    <label asp-for="IsActive" class="form-check-label">Is Active</label>
                 </div>
                 <div class="mb-3">
-                    <label for="ApplicationName" class="form-label">Application Name</label>
-                    <input type="text" id="ApplicationName" name="ApplicationName" class="form-control" />
+                    <label asp-for="ApplicationName" class="form-label">Application Name</label>
+                    <input type="text" id="ApplicationName" asp-for="ApplicationName" class="form-control" />
                     <span asp-validation-for="ApplicationName" class="text-danger"></span>
                 </div>
                 <input type="hidden" asp-for="Id" />
